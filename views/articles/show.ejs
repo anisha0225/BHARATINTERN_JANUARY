@@ -6,15 +6,102 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <title>Blog Website</title>
 </head>
+<style>
+     #head{
+        text-align: center;
+        position: relative;
+       
+    }
+    #head:after,
+    #head:before{
+        transition: all 0.3s ease;
+    }
+    #head:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 0%;
+  content: '.';
+  color: transparent;
+  background: black;
+  height: 2px;
+}
+
+
+    #head:hover{
+        color:black;
+        
+        transition: all 0.4 ease;
+    }
+    #head:hover:after {
+  width: 30%;
+}
+.head1{
+        text-align: center;
+        color: black;
+        background-color: rgb(116, 116, 243);
+        padding: 15px 15px;
+        border-radius: 15px;
+        text-decoration: none;
+        
+    font-family: sans-serif;
+    letter-spacing: 0.1em;
+    text-align: center;
+    line-height: 3em;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: all 0.3s ease;
+    margin: 1em;
+    font-size: 17px;
+        
+    }
+      
+    .head1:hover {
+    color: black;
+    background-color: transparent;
+    
+    border-radius: 18px;
+    border: 3px solid  rgb(116, 116, 243);
+    border-radius: 18px;
+}
+.head2{
+    text-align: center;
+        color: white;
+        background-color: rgb(118, 127, 118);
+        padding: 13px 17px;
+        border-radius: 15px;
+        text-decoration: none;
+        
+    font-family: sans-serif;
+    text-align: center;
+    line-height: 3em;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: all 0.3s ease;
+    margin: 1em;
+    font-size: 19px;
+}
+.head2:hover{
+    translate:scale(0.7);
+    background-color:transparent;
+    border: 3px solid   rgb(118, 127, 118);
+    color:black
+}
+
+</style>
 <body>
       <div class="container">
-      <h1 class="mb-1"><%=article.title%></h1>
+      <h1 class="mb-1"id="head"><%=article.title%></h1>
       <div class="text-muted mb-2">
         <%=article.createdAt.toLocaleDateString() %>
       </div>
-      <a href="/" class="btn btn-secondary">All Articles</a>
-      <a href="/articles/edit/<%= article.id %>" class="btn btn-info">Edit</a>
-     <div>
+      <a href="/" class="head1">All Articles</a>
+      <a href="/articles/edit/<%= article.id %>" class="head2">Edit</a>
+     <div><br>
         <%- article.sanitizedHTML %>
      </div>
     </div>
